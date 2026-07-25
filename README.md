@@ -69,20 +69,20 @@ settings.gradle
 
 
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.jpeg)
 
 ### Anemometer
-![Anemometer](screenshots/anemometer1.png)
-![Anemometer](screenshots/anemometer2.png)
+![Anemometer](screenshots/anemometer1.jpeg)
+![Anemometer](screenshots/anemometer2.jpeg)
 
 ### ADCP
-![ADCP](screenshots/adcp.png)
+![ADCP](screenshots/adcp.jpeg)
 
 ### GPS
-![GPS & LPA](screenshots/gps.png)
+![GPS & LPA](screenshots/gpsandlpa.jpeg)
 
 ### Status
-![Status](screenshots/indicator.png)
+![Status](screenshots/indicators.jpeg)
 
 ---
 
