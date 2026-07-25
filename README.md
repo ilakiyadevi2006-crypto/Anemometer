@@ -13,7 +13,6 @@ The Anemometer Android Application is a real-time wind monitoring application de
 - 🌡️ Temperature Monitoring
 - 💧 Humidity Monitoring
 - ⚡ Load Pin Amplifier Monitoring
-- 📊 Live Data Dashboard
 - 📱 Professional Android UI
 - 🔄 Real-time Data Simulation using Flask Server
 
@@ -35,7 +34,7 @@ The Anemometer Android Application is a real-time wind monitoring application de
 
 - Dashboard
 - Anemometer
-- GPS
+- GPS & LPA
 - Status
 - Settings
 
@@ -68,7 +67,22 @@ settings.gradle
 
 ## 📷 Screenshots
 
-> Screenshots will be added soon.
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Anemometer
+![Anemometer](screenshots/anemometer1.png)
+![Anemometer](screenshots/anemometer2.png)
+
+### ADCP
+![ADCP](screenshots/adcp.png)
+
+### GPS
+![GPS & LPA](screenshots/gps.png)
+
+### Status
+![Status](screenshots/indicator.png)
 
 ---
 
