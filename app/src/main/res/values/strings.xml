@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Anemometer</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_anemometer">      Anemometer</string>
+    <string name="menu_adcp">      ADCP</string>
+    <string name="menu_gps">      GPS</string>
+    <string name="menu_status">      Status</string>
+    <string name="menu_server_config">Server Configuration</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_terms">   Terms &amp; Conditions</string>
+    <string name="menu_app_info">   App Info</string>
+    <string name="app_info_content">
+        <b>Marine Monitoring System</b>\n\n
+        <b>Version:</b>\n
+        v1.0.0\n\n
+        <b>Developed By:</b>\n
+        Total Plant Engineering &amp; Design\n\n
+        <b>Build Number:</b>\n
+        1001\n\n
+        <b>Release Date:</b>\n
+        July 2026\n\n
+        <b>Platform:</b>\n
+        Android\n\n
+        <b>Server:</b>\n
+        TCP/IP\n\n
+        <b>Application Status:</b>\n
+        Stable\n\n
+        Copyright © 2026
+    </string>
+    <string name="about_content">Anemometer Application v1.0.0\n\nA comprehensive monitoring tool for wind measuring devices, ADCP, and GPS data.</string>
+    <string name="help_content">For any queries or technical support, please contact:\n\nEmail: bdm@tpedin.com\nWebsite: www.tpedin.com</string>
+    <string name="terms_content">
+        • This application is intended for marine monitoring and testing purposes.\n\n
+        • Some features require an active server connection.\n\n
+        • Data accuracy depends on connected sensors and network availability.\n\n
+        • Users are responsible for verifying the displayed information.\n\n
+        • Unauthorized modification or misuse of the application is prohibited.\n\n
+        • The application may be updated to improve functionality and performance.
+    </string>
+
+    <string name="status_connected">● Connected</string>
+    <string name="status_disconnected">● Disconnected</string>
+    <string name="status_on">● ON</string>
+    <string name="status_off">● OFF</string>
+
+    <string name="label_unknown">Unknown</string>
+</resources>

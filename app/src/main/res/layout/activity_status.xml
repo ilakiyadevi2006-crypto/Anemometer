@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatusActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_gradient">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/btnMenu"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_menu"
+                app:tint="#1E293B"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INDICATOR CONTROLS"
+                    android:textColor="#1E293B"
+                    android:textSize="26sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monitoring Dashboard"
+                    android:textColor="#64748B"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout"
+            app:layout_constraintBottom_toTopOf="@id/bottomNav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- BEACON CARD -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="@drawable/card_glow_bg">
+
+                        <!-- Header Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:padding="8dp"
+                                android:src="@drawable/beacon"
+                                android:background="@drawable/card_glow_bg"
+                                app:tint="#2563EB"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="BEACON"
+                                android:textColor="#1E293B"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="16dp"/>
+
+                            <TextView
+                                android:id="@+id/tvBeaconStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="● OFF"
+                                android:textColor="#EF4444"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Button Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/btnBeaconOn"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:background="@drawable/bg_indicator_btn_inactive"
+                                android:orientation="horizontal"
+                                android:layout_marginEnd="8dp"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivBeaconOn"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/beacon"
+                                    app:tint="#94A3B8"/>
+
+                                <TextView
+                                    android:id="@+id/tvBeaconOn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ON"
+                                    android:textColor="#64748B"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="12dp"
+                                    android:textSize="16sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnBeaconOff"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:background="@drawable/bg_indicator_btn_off"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivBeaconOff"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/beacon"
+                                    app:tint="#FFFFFF"/>
+
+                                <TextView
+                                    android:id="@+id/tvBeaconOff"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="OFF"
+                                    android:textColor="#FFFFFF"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="12dp"
+                                    android:textSize="16sp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- FOG HORN CARD -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="@drawable/card_glow_bg">
+
+                        <!-- Header Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_fog"
+                                android:background="@drawable/card_glow_bg"
+                                app:tint="#2563EB"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="FOG HORN"
+                                android:textColor="#1E293B"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="16dp"/>
+
+                            <TextView
+                                android:id="@+id/tvFogStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="● OFF"
+                                android:textColor="#EF4444"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Button Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/btnFogOn"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:background="@drawable/bg_indicator_btn_inactive"
+                                android:orientation="horizontal"
+                                android:layout_marginEnd="8dp"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivFogOn"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_fog"
+                                    app:tint="#94A3B8"/>
+
+                                <TextView
+                                    android:id="@+id/tvFogOn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ON"
+                                    android:textColor="#64748B"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="12dp"
+                                    android:textSize="16sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnFogOff"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:background="@drawable/bg_indicator_btn_off"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivFogOff"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/ic_fog"
+                                    app:tint="#FFFFFF"/>
+
+                                <TextView
+                                    android:id="@+id/tvFogOff"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="OFF"
+                                    android:textColor="#FFFFFF"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="12dp"
+                                    android:textSize="16sp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- MARINE LANTERN CARD -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="@drawable/card_glow_bg">
+
+                        <!-- Header Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
+                                android:padding="8dp"
+                                android:src="@drawable/marine"
+                                android:background="@drawable/card_glow_bg"
+                                app:tint="#2563EB"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="MARINE LANTERN"
+                                android:textColor="#1E293B"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="16dp"/>
+
+                            <TextView
+                                android:id="@+id/tvLanternStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="● OFF"
+                                android:textColor="#EF4444"
+                                android:textSize="14sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Button Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/btnLanternOn"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:background="@drawable/bg_indicator_btn_inactive"
+                                android:orientation="horizontal"
+                                android:layout_marginEnd="8dp"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivLanternOn"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/marine"
+                                    app:tint="#94A3B8"/>
+
+                                <TextView
+                                    android:id="@+id/tvLanternOn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ON"
+                                    android:textColor="#64748B"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="12dp"
+                                    android:textSize="16sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/btnLanternOff"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:background="@drawable/bg_indicator_btn_off"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="8dp"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <ImageView
+                                    android:id="@+id/ivLanternOff"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:src="@drawable/marine"
+                                    app:tint="#FFFFFF"/>
+
+                                <TextView
+                                    android:id="@+id/tvLanternOff"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="OFF"
+                                    android:textColor="#FFFFFF"
+                                    android:textStyle="bold"
+                                    android:layout_marginStart="12dp"
+                                    android:textSize="16sp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#F8FAFC"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:paddingTop="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/navAnemometer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/anemometer_icon"
+                    app:tint="#64748B"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navAdcp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/adcp_icon"
+                    app:tint="#64748B"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navGps"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_gps"
+                    app:tint="#64748B"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navStatus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_grid_filled"
+                    app:tint="#2563EB"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/side_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemBackground="@drawable/nav_item_bg" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

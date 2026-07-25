@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Deep Snow Blue Base -->
+    <item>
+        <shape>
+            <gradient
+                android:angle="315"
+                android:startColor="#E6F2FF"
+                android:centerColor="#CFE5FF"
+                android:endColor="#B8D8FF"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Pronounced Darker Blue Shade for Depth -->
+    <item>
+        <shape>
+            <gradient
+                android:type="radial"
+                android:gradientRadius="900dp"
+                android:centerX="0.9"
+                android:centerY="0.9"
+                android:startColor="#253B7AFA"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Top highlight for the "Snow" effect -->
+    <item>
+        <shape>
+            <gradient
+                android:type="radial"
+                android:gradientRadius="700dp"
+                android:centerX="0.1"
+                android:centerY="0.1"
+                android:startColor="#80FFFFFF"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+</layer-list>

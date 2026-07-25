@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GpsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_gradient">
+
+        <!-- Header -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/btnMenu"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_menu"
+                app:tint="#1E293B"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="ContentDescription"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GPS &amp; LPA"
+                    android:textColor="#1E293B"
+                    android:textSize="26sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monitoring Dashboard"
+                    android:textColor="#64748B"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout"
+            app:layout_constraintBottom_toTopOf="@id/bottomNav"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- GPS CARD -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="@drawable/card_glow_bg">
+
+                        <!-- Header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:src="@drawable/ic_gps"
+                                tools:ignore="ContentDescription"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="GPS STATUS"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#1E293B"
+                                android:paddingStart="12dp"/>
+
+                            <TextView
+                                android:id="@+id/tvGpsStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="● Disconnected"
+                                android:textColor="#EF4444"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <!-- Body -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center_vertical">
+
+                            <!-- Satellite -->
+                            <FrameLayout
+                                android:layout_width="140dp"
+                                android:layout_height="140dp">
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/ic_satellite"
+                                    android:scaleType="fitCenter"
+                                    tools:ignore="ContentDescription"/>
+                            </FrameLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="16dp">
+
+                                <!-- Latitude Card -->
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardBackgroundColor="#F1F5F9"
+                                    app:cardCornerRadius="18dp"
+                                    app:cardElevation="0dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="12dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:layout_width="45dp"
+                                            android:layout_height="45dp"
+                                            android:src="@drawable/ic_latitude"
+                                            tools:ignore="ContentDescription"/>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:layout_marginStart="12dp">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="LATITUDE"
+                                                android:textColor="#64748B"
+                                                android:textSize="10sp"
+                                                android:textStyle="bold"/>
+
+                                            <TextView
+                                                android:id="@+id/txtLatitude"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="13.0827° N"
+                                                android:textColor="#1E293B"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"/>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <!-- Longitude Card -->
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    app:cardBackgroundColor="#F1F5F9"
+                                    app:cardCornerRadius="18dp"
+                                    app:cardElevation="0dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="12dp"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:layout_width="45dp"
+                                            android:layout_height="45dp"
+                                            android:src="@drawable/ic_longitude"
+                                            tools:ignore="ContentDescription"/>
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:layout_marginStart="12dp">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="LONGITUDE"
+                                                android:textColor="#64748B"
+                                                android:textSize="10sp"
+                                                android:textStyle="bold"/>
+
+                                            <TextView
+                                                android:id="@+id/txtLongitude"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="80.2707° E"
+                                                android:textColor="#1E293B"
+                                                android:textSize="18sp"
+                                                android:textStyle="bold"/>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Info Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Accuracy"
+                                    android:textColor="#64748B"
+                                    android:textSize="12sp"/>
+                                <TextView
+                                    android:id="@+id/txtAccuracy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2.5 m"
+                                    android:textColor="#2563EB"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Speed"
+                                    android:textColor="#64748B"
+                                    android:textSize="12sp"/>
+                                <TextView
+                                    android:id="@+id/txtGpsSpeed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0.6 m/s"
+                                    android:textColor="#2563EB"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Time"
+                                    android:textColor="#64748B"
+                                    android:textSize="12sp"/>
+                                <TextView
+                                    android:id="@+id/txtTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="11:31 AM"
+                                    android:textColor="#2563EB"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- LOAD PIN AMPLIFIER CARD -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:background="@drawable/card_glow_bg">
+
+                        <!-- Header -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="LOAD PIN AMPLIFIER"
+                                android:textColor="#1E293B"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvLoadPinStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="● Disconnected"
+                                android:textColor="#EF4444"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Gauge -->
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="260dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center">
+
+                            <!-- Gauge Background -->
+                            <ImageView
+                                android:id="@+id/gaugeBg"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/gauge_background_vector"
+                                android:scaleType="fitCenter"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                tools:ignore="ContentDescription"/>
+
+                            <!-- Labels -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:textColor="#64748B"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@id/gaugeBg"
+                                app:layout_constraintStart_toStartOf="@id/gaugeBg"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginStart="10dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12"
+                                android:textColor="#64748B"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toTopOf="@id/gaugeBg"
+                                app:layout_constraintStart_toStartOf="@id/gaugeBg"
+                                app:layout_constraintEnd_toEndOf="@id/gaugeBg"
+                                android:layout_marginTop="6dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20"
+                                android:textColor="#64748B"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@id/gaugeBg"
+                                app:layout_constraintEnd_toEndOf="@id/gaugeBg"
+                                android:layout_marginBottom="4dp"
+                                android:layout_marginEnd="10dp"/>
+
+                            <!-- Needle -->
+                            <ImageView
+                                android:id="@+id/gaugeNeedle"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:src="@drawable/needle"
+                                app:tint="#2563EB"
+                                android:rotation="0"
+                                app:layout_constraintBottom_toBottomOf="@id/gaugeBg"
+                                app:layout_constraintStart_toStartOf="@id/gaugeBg"
+                                app:layout_constraintEnd_toEndOf="@id/gaugeBg"
+                                android:layout_marginBottom="10dp"
+                                tools:ignore="ContentDescription"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <!-- Current Value -->
+                        <TextView
+                            android:id="@+id/txtLoadPinValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="12.45 mA"
+                            android:textColor="#1E293B"
+                            android:textSize="42sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Current Output"
+                            android:textColor="#64748B"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- ================= DATA LOG CARD ================= -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="8dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:background="@drawable/card_glow_bg">
+
+                        <TextView
+                            android:id="@+id/tvDataLog"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DATA LOG"
+                            android:textColor="#1E293B"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/tvViewAll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View All"
+                            android:textColor="#2563EB"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <ImageView
+                            android:id="@+id/imgGraph"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="18dp"
+                            android:src="@drawable/ic_line_chart_green"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvDataLog"
+                            tools:ignore="ContentDescription"/>
+
+                        <TextView
+                            android:id="@+id/tvRecording"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recording..."
+                            android:textColor="#10B981"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@id/imgGraph"
+                            app:layout_constraintTop_toTopOf="@id/imgGraph"
+                            android:layout_marginStart="12dp"/>
+
+                        <TextView
+                            android:id="@+id/tvDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Duration: 00:25:18"
+                            android:textColor="#64748B"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="@id/tvRecording"
+                            app:layout_constraintTop_toBottomOf="@id/tvRecording"/>
+
+                        <LinearLayout
+                            android:id="@+id/btnStop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:background="@drawable/bg_btn_stop_border"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/imgGraph"
+                            app:layout_constraintBottom_toBottomOf="@id/tvDuration">
+
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="#EF4444"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="STOP"
+                                android:textColor="#EF4444"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#F8FAFC"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:paddingTop="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/navAnemometer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/anemometer_icon"
+                    app:tint="#64748B"
+                    tools:ignore="ContentDescription"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navAdcp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/adcp_icon"
+                    app:tint="#64748B"
+                    tools:ignore="ContentDescription"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navGps"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_gps"
+                    app:tint="#2563EB"
+                    tools:ignore="ContentDescription"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/navStatus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_grid_filled"
+                    app:tint="#64748B"
+                    tools:ignore="ContentDescription"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/side_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemBackground="@drawable/nav_item_bg" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

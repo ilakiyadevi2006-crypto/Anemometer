@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="200"
+    android:viewportHeight="120">
+
+    <!-- Outer Semicircle Track -->
+    <path
+        android:pathData="M 20,110 A 80,80 0 0 1 180,110"
+        android:strokeColor="#E2E8F0"
+        android:strokeWidth="10"
+        android:strokeLineCap="round" />
+
+    <!-- 4mA - 12mA (Green) -->
+    <path
+        android:pathData="M 20,110 A 80,80 0 0 1 100,30"
+        android:strokeColor="#10B981"
+        android:strokeWidth="10" />
+
+    <!-- 12mA - 20mA (Orange) -->
+    <path
+        android:pathData="M 100,30 A 80,80 0 0 1 180,110"
+        android:strokeColor="#F59E0B"
+        android:strokeWidth="10" />
+
+    <!-- Ticks -->
+    <!-- 4mA -->
+    <path android:pathData="M 20,110 L 32,110" android:strokeColor="#64748B" android:strokeWidth="2"/>
+    <!-- 8mA (45 deg) -->
+    <path android:pathData="M 43.4,53.4 L 52,62" android:strokeColor="#64748B" android:strokeWidth="2"/>
+    <!-- 12mA (90 deg) -->
+    <path android:pathData="M 100,30 L 100,42" android:strokeColor="#64748B" android:strokeWidth="2"/>
+    <!-- 16mA (135 deg) -->
+    <path android:pathData="M 156.6,53.4 L 148,62" android:strokeColor="#64748B" android:strokeWidth="2"/>
+    <!-- 20mA -->
+    <path android:pathData="M 180,110 L 168,110" android:strokeColor="#64748B" android:strokeWidth="2"/>
+
+</vector>
